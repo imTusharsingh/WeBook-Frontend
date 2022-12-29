@@ -1,12 +1,12 @@
 import axios from "axios";
 
 
-
+const API = "https://webook-api.onrender.com";
 
 export const like = async (token, id) => {
     try {
         console.log(id)
-        const res = await axios.post("/like",
+        const res = await axios.post(`${API}/like`,
             { id: id },
             {
                 headers: {
@@ -28,7 +28,7 @@ export const like = async (token, id) => {
 export const dislike = async (token, id) => {
     try {
         console.log(id)
-        const res = await axios.post("/dislike",
+        const res = await axios.post(`${API}/dislike`,
             { id: id },
             {
                 headers: {

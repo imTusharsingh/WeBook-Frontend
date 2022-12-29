@@ -1,11 +1,11 @@
 import axios from "axios";
 
-
+const API = "https://webook-api.onrender.com";
 
 export const addComment = async (token, userComment) => {
     try {
         console.log(userComment)
-        const res = await axios.post("/add-comment",
+        const res = await axios.post(`${API}/add-comment`,
             userComment,
             {
                 headers: {
@@ -26,7 +26,7 @@ export const addComment = async (token, userComment) => {
 export const editComment = async (token, userComment) => {
     try {
         console.log(userComment)
-        const res = await axios.patch("/edit-comment",
+        const res = await axios.patch(`${API}/edit-comment`,
             userComment,
             {
                 headers: {
@@ -47,7 +47,7 @@ export const editComment = async (token, userComment) => {
 export const deleteComment = async (token, ids) => {
     try {
         console.log(ids)
-        const res = await axios.post("/remove-comment",
+        const res = await axios.post(`${API}/remove-comment`,
             ids,
             {
                 headers: {

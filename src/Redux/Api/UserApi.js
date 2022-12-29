@@ -1,13 +1,13 @@
 import axios from "axios";
 
-
+const API = "https://webook-api.onrender.com";
 
 
 
 
 export const registerUser = async (data) => {
     try {
-        const res = await axios.post("/register", data)
+        const res = await axios.post(`${API}/register`, data)
         const result = res.data;
         return result;
     } catch (err) {
@@ -21,7 +21,7 @@ export const loginUser = async (data) => {
 
     try {
 
-        const res = await axios.post("/login", data)
+        const res = await axios.post(`${API}/login`, data)
         const result = res.data;
         return result;
 
@@ -40,7 +40,7 @@ export const getUser = async (token, id) => {
         const res = await axios.request({
             method: 'GET',
 
-            url: (!id) ? `/user` : `/user?id=${id}`,
+            url: (!id) ? `${API}/user` : `${API}/user?id=${id}`,
             headers: {
                 'Authorization': `Bearer ${token}`,
             }
@@ -61,7 +61,7 @@ export const getUser = async (token, id) => {
 export const editUser = async (token, userData) => {
     console.log(userData)
     try {
-        const res = await axios.patch("/edit-profile",
+        const res = await axios.patch(`${API}/edit-profile`,
             userData,
             {
                 headers: {
@@ -83,7 +83,7 @@ export const searchUser = async (token, searchData) => {
     try {
         const res = await axios.request({
             method: 'POST',
-            url: "/search-user",
+            url: `${API}/search-user`,
             data: searchData,
             params: {
                 city: searchData.city,

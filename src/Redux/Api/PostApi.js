@@ -1,6 +1,6 @@
 import axios from "axios"
 
-
+const API = "https://webook-api.onrender.com";
 
 
 export const getPost = async (token, id) => {
@@ -8,7 +8,7 @@ export const getPost = async (token, id) => {
         const res = await axios.request({
             method: 'GET',
 
-            url: (!id) ? `/get-posts` : `/get-posts?id=${id}`,
+            url: (!id) ? `${API}/get-posts` : `${API}/get-posts?id=${id}`,
             headers: {
                 'Authorization': `Bearer ${token}`,
             }
@@ -28,7 +28,7 @@ export const getPost = async (token, id) => {
 export const getFriendPosts = async (token, limit) => {
     try {
 
-        const res = await axios.get("/get-friends-posts", {
+        const res = await axios.get(`${API}/get-friends-posts`, {
             headers: {
                 'Authorization': `Bearer ${token}`,
             }, params: {
@@ -47,7 +47,7 @@ export const getFriendPosts = async (token, limit) => {
 
 export const uploadPost = async (token, postData) => {
     try {
-        const res = await axios.post("/upload-post",
+        const res = await axios.post(`${API}/upload-post`,
             postData, {
             headers: {
                 'Authorization': `Bearer ${token}`,
@@ -66,7 +66,7 @@ export const uploadPost = async (token, postData) => {
 export const updatePost = async (token, postData) => {
     try {
         console.log(postData)
-        const res = await axios.patch("/update-post",
+        const res = await axios.patch(`${API}/update-post`,
             postData, {
             headers: {
                 'Authorization': `Bearer ${token}`,
@@ -84,7 +84,7 @@ export const updatePost = async (token, postData) => {
 export const deletePost = async (token, id) => {
     try {
         console.log(id);
-        const res = await axios.delete(`/delete-post/${id}`, {
+        const res = await axios.delete(`${API}/delete-post/${id}`, {
             headers: {
                 'Authorization': `Bearer ${token}`,
             }
@@ -101,7 +101,7 @@ export const deletePost = async (token, id) => {
 export const getPostById = async (token, id) => {
     try {
         console.log(id);
-        const res = await axios.get(`/post/${id}`, {
+        const res = await axios.get(`${API}/post/${id}`, {
             headers: {
                 'Authorization': `Bearer ${token}`,
             }

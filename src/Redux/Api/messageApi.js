@@ -1,9 +1,10 @@
 import axios from 'axios';
 
+const API = "https://webook-api.onrender.com";
 
 export const getMessage = async (token, conversationId) => {
     try {
-        const res = await axios.get(`/get-message/${conversationId}`,
+        const res = await axios.get(`${API}/get-message/${conversationId}`,
             {
                 headers: {
                     'Authorization': `Bearer ${token}`
@@ -21,7 +22,7 @@ export const getMessage = async (token, conversationId) => {
 export const createMessage = async (token, data) => {
     console.log(token, data)
     try {
-        const res = await axios.post("/new-message",
+        const res = await axios.post(`${API}/new-message`,
             data,
             {
                 headers: {
