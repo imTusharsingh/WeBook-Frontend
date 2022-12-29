@@ -1,3 +1,3 @@
 import { io } from "socket.io-client";
-const ENDPOINT = "https://mern-socialapp123.herokuapp.com/" || "http://localhost:8080"
+const ENDPOINT = "https://webook-api.onrender.com" || "http://localhost:4000"
 export default io(ENDPOINT)
