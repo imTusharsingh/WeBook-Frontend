@@ -27,7 +27,7 @@ export const sendFriendRequest = async (token, id) => {
 
 export const getFriendRequestList = async (token) => {
     try {
-        const res = await axios.get(`${API} /get-friend-request`,
+        const res = await axios.get(`${API}/get-friend-request`,
             {
                 headers: {
                     'Authorization': `Bearer ${token}`,
