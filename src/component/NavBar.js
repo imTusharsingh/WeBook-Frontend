@@ -141,8 +141,8 @@ const NavBar = () => {
                             >
                                 <Avatar
                                     sx={{ border: "2px solid black", width: "32px", height: "32px", backgroundColor: "orangered", textTransform: "capitalize", fontSize: "22px" }}
-                                    alt={data.name[0]}
-                                    src={`/${data.profileImg}`}
+                                    alt={data?.name[0]}
+                                    src={`/${data?.profileImg}`}
                                 />
                             </IconButton>
 
